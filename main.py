@@ -8,7 +8,6 @@ menu.print_menu()
 # Navigation to other Pages
 choice = str(input(' > '))
 
-
 match choice:
     case '1' | 'Play' | 'play':
         os.system('cls' if os.name == 'nt' else 'clear'),

@@ -1,17 +1,23 @@
 from art import text2art
-from menu import menu_break
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True) 
+from menu import menu_break
 
 # Hero Text for Rules Section
-rules_hero = text2art("Rules")
+rules_hero_art = text2art("Rules")
 
 # Header text
-rules_header = (f"        {Fore.YELLOW}Golden {Fore.WHITE}rules of the soil patch")
+rules_hero_text = (f"        {Fore.YELLOW}Golden {Fore.WHITE}rules of the soil patch")
 # Tried to center the above function with colour but couldn't.
 # rules_txt = "Rules of the soil patch!"
 # rules_header = rules_txt.center(44)
+
+def rules_hero():
+    print(rules_hero_art)
+    print(menu_break)
+    print(rules_hero_text)
+    print(menu_break)
 
 def rules_list():
     # Rule 1
@@ -26,12 +32,12 @@ def rules_list():
     # Rule 4
     print(f" {Fore.YELLOW}4. {Fore.WHITE}If you manage to eat enough{Fore.YELLOW} Gold{Fore.WHITE} and\n    you can no longer grow in my patch...\n\n    You will evolve from a {Fore.MAGENTA}Regular Worm{Fore.WHITE} to\n    a{Fore.YELLOW} Glamorous Golden Worm{Fore.WHITE} like me!")
 
+def rules_input():
+    pass
+
 
 def print_rules():
-    print (rules_hero)
-    print(menu_break)
-    print(rules_header)
-    print(menu_break)
+    rules_hero()
     rules_list()
     print(menu_break)
 
