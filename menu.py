@@ -1,4 +1,7 @@
-from art import text2art
+# from art import text2art
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True) 
 
 def hero():
     print(worm_art)
@@ -8,11 +11,14 @@ def hero():
     print(menu_break)
 
 # title = text2art("G Worm")
-intro = ("         Welcome to the Golden Worm")  #Spaces to center intro within menu break
-menu_break = ('+------------------------------------------+')
+
+
+intro = (f"         {Fore.MAGENTA}Welcome to the {Fore.YELLOW}Golden{Fore.MAGENTA} Worm!")  #Spaces to center intro within menu break
+
+menu_break = ('+-------------------------------------------+')
 
 #Couldn't find a library that contained a worm like the following:
-worm_art = str(r"""
+worm_art = str(rf"""{Fore.YELLOW}
                                 (o)(o)
                                /     \
                               /       |
