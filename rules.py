@@ -35,7 +35,7 @@ def print_rules():
     rules_list()
     print(menu_break)
 
-print_rules()
+# print_rules()
 
 
 

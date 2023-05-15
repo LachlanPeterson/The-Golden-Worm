@@ -4,14 +4,24 @@ import rules
 
 # Main Page
 menu.print_menu()
-choice = input(' > ')
-os.system('cls' if os.name == 'nt' else 'clear')
 
-# match choice:
-#     pass 
-#     case 
-#     case 
-#     case
-# rules.rules()
-# input(' > ')
+# Navigation to other Pages
+choice = str(input(' > '))
+
+
+match choice:
+    case '1' | 'Play' | 'play':
+        os.system('cls' if os.name == 'nt' else 'clear'),
+        print("Game time") 
+
+    case '2' | 'Rules' | 'rules':
+        os.system('cls' if os.name == 'nt' else 'clear'),
+        rules.print_rules()
+
+    case '3' | 'Scores' | 'scores':
+        os.system('cls' if os.name == 'nt' else 'clear'),
+        print("Score time") 
+
+    case _:
+        print("Failed") 
 
