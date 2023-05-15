@@ -3,6 +3,11 @@ import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True) 
 
+
+def print_menu():
+    hero()
+    introduction()
+    main_menu()
 # Print Hero Art and Welcome Message
 def hero():
     print(worm_art)
@@ -10,10 +15,10 @@ def hero():
     print(intro_text)
     print(menu_break)
 
-# Introduction with George, prompt user for name and greets them before introducing the menu.
+# Introduction with Greg, prompt user for name and greets them before introducing the menu.
 def introduction():
-    # Introduction with George
-    print(f" Hello, I am {Fore.YELLOW}George {Fore.WHITE}the Great Golden Worm! \n")
+    # Introduction with Greg
+    print(f" Hello, I am {Fore.YELLOW}Greg {Fore.WHITE}the Great Golden Worm! \n")
     print(" I haven't seen you around this soil patch...") 
 
     # User prompt for name input
@@ -28,7 +33,7 @@ def introduction():
 def main_menu():
     print(menu_break)
     print('  1. Play')
-    print('  2. About')
+    print('  2. Rules')
     print('  3. Scores')
     print('  4. Exit')
     print(menu_break)
@@ -43,6 +48,7 @@ def main_menu():
 intro_text = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM")  #Spaces to center intro within menu break
 
 menu_break = ('+--------------------------------------------+')
+
 
 #Couldn't find a library that contained a worm like the following:
 worm_art = str(rf"""{Fore.YELLOW}

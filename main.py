@@ -1,10 +1,17 @@
 import menu
+import os
+import rules
 
 # Main Page
-menu.hero()
-menu.introduction()
-menu.main_menu()
-input(' > ')
+menu.print_menu()
+choice = input(' > ')
+os.system('cls' if os.name == 'nt' else 'clear')
 
-
+# match choice:
+#     pass 
+#     case 
+#     case 
+#     case
+# rules.rules()
+# input(' > ')
 

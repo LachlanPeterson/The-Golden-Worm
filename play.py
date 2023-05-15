@@ -1,3 +1,10 @@
+# Set Board size
+board_width = 38
+board_height = 20
+
+# Board positions based off size, no. of rows is determined by height and vice versa.
+board = [(row, column) for row in range(board_height) for column in range(board_width)]
+
 # Print board function
 def print_board():
     for position in board:
@@ -14,12 +21,4 @@ def print_board():
             # Defaults new line.
             print('')
             
-
-# Set Board size
-board_width = 20
-board_height = 11
-
-# Board positions based off size, no. of rows is determined by height and vice versa.
-board = [(row, column) for row in range(board_height) for column in range(board_width)]
-
 print_board()
