@@ -44,13 +44,13 @@ def main_menu():
     # print(about_title)
 # title = text2art("G Worm")
 
-
 intro_text = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM")  #Spaces to center intro within menu break
 
 menu_break = ('+--------------------------------------------+')
 
 
-#Couldn't find a library that contained a worm like the following:
+# Couldn't find a library that contained a worm art
+# Therefore I converted the exact function to a string value for the variable worm_art
 worm_art = str(rf"""{Fore.YELLOW}
                                  (o)(o)
                                 /     \
