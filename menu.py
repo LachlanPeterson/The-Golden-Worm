@@ -4,6 +4,7 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True) 
 import os
 import rules
+import play
 
 # VARIABLES
 menu_header = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM")  #Spaces to center intro within menu break
@@ -62,6 +63,8 @@ def nav_menu():
         case "1" | "Play" | "play":
             pass
             # os.system('cls' if os.name == 'nt' else 'clear'),
+            # Game needs to be in main.py otherwise it loads badly.
+            # play.game()
 
         case "2" | "Rules" | "rules":
             os.system('cls' if os.name == 'nt' else 'clear'),
@@ -73,8 +76,18 @@ def nav_menu():
             
 
         case "4" | "Exit" | "exit":
-            pass
+            print(line_break)
+            print(f' Come back to my soil patch soon {Fore.MAGENTA + name}!')
+            print(line_break)
+            print('')
+            exit = "THE PROGRAM WILL NOW TERMINATE."
+            exit_center = exit.center(44)
+            print(exit_center)
+            print('')
+            print(line_break)
+            quit()
             # os.system('cls' if os.name == 'nt' else 'clear'),
+
 
 def initial_menu():
     menu_hero()

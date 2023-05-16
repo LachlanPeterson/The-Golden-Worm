@@ -52,7 +52,9 @@ def rules_input():
             menu.main_menu()
         case "No" | "no":
             print(line_break)
-            print("  Have another read, you'll get it!")
+            no_prompt = "Have another read, you'll get it!"
+            read_again = no_prompt.center(44)
+            print(read_again)
             print(line_break)
             rules_input()
             
