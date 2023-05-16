@@ -7,8 +7,11 @@ board = [(row, column) for row in range(board_height) for column in range(board_
 
 # Worm
 worm = [(board_height//2,6),(board_height//2,5),(board_height//2,4)]
+movement = {'up': (-1,0), 'left': (0,-1), 'down': (1,0), 'right': (0,1)}
+auto_move = movement['right']
+# Worm auto direction = right, so I call the key from above dict to get the value.
 
-# Gold 
+# Gold Nuggets
 gold_position = (5,15)
 
 # Print board function
@@ -33,7 +36,16 @@ def print_board():
             # Defaults new line.
             print('')
 
+def worm_movement():
+    # Worm head = first tuple in worm, so to move worm we are adding a new head = direciton + old head, then removing tail(last tuple).
+    update_worm = worm[0][0] + auto_move[0], worm[0][1] + auto_move[1]
+    # Inserting new head as first tuple in worm, meaning I have 4 tuples.
+    worm.insert(0,update_worm)
+    # You can see there are now 4 tuples with print(worm), so you need to pop last tuple in list.
+    worm.pop(-1)
+    # If you print(worm) there are 3 tuples.
+
+
+
+
 print_board()
-
-
-
