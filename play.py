@@ -1,6 +1,9 @@
+import os
+from pytimedinput import timedInput
+
 # Set Board size
-board_width = 22
-board_height = 11
+board_width = 32
+board_height = 15
 
 # Board positions based off size, no. of rows is determined by height and vice versa.
 board = [(row, column) for row in range(board_height) for column in range(board_width)]
@@ -46,6 +49,23 @@ def worm_movement():
     # If you print(worm) there are 3 tuples.
 
 
+while True:
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+    print_board()
+    
+    player_input,_ = timedInput('Press Movement Keys: ', timeout = 0.5)
+    match player_input:
+        case 'w' | 'W':
+            auto_move = movement['up']
+        case 'a' | 'A':
+            auto_move = movement['left']
+        case 's' | 'S':
+            auto_move = movement['down']
+        case 'd' | 'D':
+            auto_move = movement['right']
+        case other:
+            pass
+    
+    worm_movement()
 
-print_board()
