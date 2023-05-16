@@ -8,6 +8,7 @@ def print_menu():
     hero()
     introduction()
     main_menu()
+
 # Print Hero Art and Welcome Message
 def hero():
     print(worm_art)

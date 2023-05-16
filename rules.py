@@ -4,6 +4,7 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True) 
 from menu import menu_break
 
+
 # Hero Text for Rules Section
 rules_hero_art = text2art("Rules")
 
@@ -33,6 +34,16 @@ def rules_list():
     print(f" {Fore.YELLOW}4. {Fore.WHITE}If you manage to eat enough{Fore.YELLOW} Gold{Fore.WHITE} and\n    you can no longer grow in my patch...\n\n    You will evolve from a {Fore.MAGENTA}Regular Worm{Fore.WHITE} to\n    a{Fore.YELLOW} Glamorous Golden Worm{Fore.WHITE} like me!")
 
 def rules_input():
+    rules_footer = "Do you understand the rules? (Yes or No)"
+    rules_nav = rules_footer.center(44)
+    print(rules_nav)
+    print(menu_break)
+    
+    
+        
+
+
+# rules_header = rules_txt.center(44)
     pass
 
 
@@ -40,6 +51,7 @@ def print_rules():
     rules_hero()
     rules_list()
     print(menu_break)
+    rules_input()
 
 # print_rules()
 
