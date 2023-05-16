@@ -50,10 +50,13 @@ def worm_movement():
 
 
 while True:
+    # Reprint board, giving impression of movement
     os.system('cls' if os.name == 'nt' else 'clear')
 
+    # Print Board, worm, gold and border
     print_board()
     
+    # Player input for worm movement
     player_input,_ = timedInput('Press Movement Keys: ', timeout = 0.5)
     match player_input:
         case 'w' | 'W':
@@ -67,5 +70,6 @@ while True:
         case other:
             pass
     
+    # Updating new worm position after user input before game reprint 
     worm_movement()
 
