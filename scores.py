@@ -2,7 +2,8 @@ from art import text2art
 from colorama import Fore
 import os 
 import menu
-from play import max_score
+from collections import OrderedDict
+from play import max_score, score
 
 
 # Hero Text for Rules Section
@@ -11,6 +12,17 @@ scores_hero_art = text2art("Scores")
 # Header text
 scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has{Fore.YELLOW} Evolved...{Fore.WHITE}")
 
+# Calc 2nd and 3rd scores for highscores list
+second_score = 2 # (max_score // 8)
+third_score = 1 # (max_score // 16)
+
+# Create dictionaries for inital scores
+high_scores = {
+    'Greg': max_score,
+    'Jake': second_score,
+    'Lachlan': third_score
+    
+    }
 
 def scores_hero():
     print(scores_hero_art)
@@ -19,27 +31,28 @@ def scores_hero():
     print(menu.line_break)
 
 def scores_list():
-
-    # Calc 2nd and 3rd scores
-    second_score = (max_score // 8)
-    third_score = (max_score // 16)
-
-    # Create dictionaries for inital scores
-    high_scores = [
-        {'name': 'Greg', 'score': max_score},
-        {'name': 'Jake', 'score': second_score},
-        {'name': 'Lachlan', 'score': third_score}
-    ]
     # Print individual scores
-
     print('')
-    for placement in high_scores:
-        print(f"      {placement['name']} has eaten {placement['score']} Gold Nuggets\n")
-
+    # Looping individual key-value pairs to print high-scores.
+    for k, v in high_scores.items():
+        print(f"      {k} has eaten {v} Gold Nuggets\n")
 
     
-
-
+# Receives score from play.py and update highscores accordingly   
+def update_highscores(player_score):
+    global high_scores
+    for v in high_scores.values():
+        if player_score >= v:
+            # Create new k:v pair and insert into dictionary
+            high_scores[menu.name] = player_score
+            
+            # Sorts high scores based on score value
+            sorted_highscores = sorted(high_scores.items(),key=lambda item: item[1],reverse=True)
+            if len(sorted_highscores) > 3:
+                # Removes smallest tuple from high scores
+                sorted_highscores.pop(-1)
+            high_scores = dict(sorted_highscores)
+            break
 
 
 def scores_prompt():

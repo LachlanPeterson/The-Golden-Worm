@@ -1,5 +1,6 @@
 import os
 import menu
+import scores
 from pytimedinput import timedInput
 from random import randint
 from colorama import Fore
@@ -76,6 +77,8 @@ def worm_movement():
         if score == max_score:
             # End game
             game_over = True
+            # Passing score variable to scores module
+            scores.update_highscores(score)
             print('You won and turned gold!')
         else:    
             generate_gold_position()
@@ -91,6 +94,10 @@ def worm_die():
     global game_over
     game_over = True
 
+    # Passing score variable to scores module
+    scores.update_highscores(score)
+
+    # Death screen
     os.system('cls' if os.name == 'nt' else 'clear')
     print(menu.worm_death)
     print(menu.line_break)
