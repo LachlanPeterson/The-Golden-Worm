@@ -52,8 +52,13 @@ def worm_movement():
     # Inserting new head as first tuple in worm, meaning I have 4 tuples.
     worm.insert(0,update_worm)
     # You can see there are now 4 tuples with print(worm), so you need to pop last tuple in list.
-    worm.pop(-1)
-    # If you print(worm) there are 3 tuples.
+
+    if worm[0] == gold_position:
+        generate_gold_position()
+
+    else:
+        worm.pop(-1)
+        # If you print(worm) there are 3 tuples.
 
 # Generate initial gold position
 generate_gold_position()
