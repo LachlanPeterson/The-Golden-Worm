@@ -26,7 +26,10 @@ alive = True
 # Gold Nuggets
 def generate_gold_position():
     global gold_position
-    gold_position = (randint(1, board_height - 2)), (randint(1, board_width -2)) 
+    gold_position = (randint(1, board_height - 2)), (randint(1, board_width -2))
+    # Regenerating gold position if its in worm 
+    if gold_position in worm:
+        generate_gold_position()
 
 # Print board function
 def print_board():
