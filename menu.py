@@ -1,14 +1,12 @@
-from art import text2art
-import colorama
-from colorama import Fore, Back, Style
-colorama.init(autoreset=True) 
+from colorama import Fore
 import os
 import rules
 import scores
-# import play
+import play
+
 
 # VARIABLES
-menu_header = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM")  #Spaces to center intro within menu break
+menu_header = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM{Fore.WHITE}")  #Spaces to center intro within menu break
 line_break = ('+--------------------------------------------+')
 
 # Therefore I converted the exact function to a string value for the variable worm_art
@@ -23,7 +21,7 @@ greg = str(rf"""{Fore.YELLOW}
       //\ \  /  /    \         /
       V  \ \/  /      \       /
           \___/        \_____/
-""")
+{Fore.WHITE}""")
 
 #FUNCTIONS
 
@@ -44,10 +42,10 @@ def introduction():
     global name
     name = input(" Tell me, what's your name child? ")
     #  Prints name and greeting
-    print (f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name for a worm! \n Welcome to my special soil patch filled \n with {Fore.YELLOW}GOLD.\n") 
+    print (f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name for a worm! \n Welcome to my special soil patch filled \n with {Fore.YELLOW}GOLD.{Fore.WHITE}\n") 
 
 def prompt():   
-    print(f" What would you like to do now {Fore.MAGENTA + name}?")
+    print(f" What would you like to do now {Fore.MAGENTA + name}?{Fore.WHITE}")
 
 # Prints Navigation Menu
 def nav_menu():
@@ -62,10 +60,9 @@ def nav_menu():
     navigation = str(input(' > '))
     match navigation:
         case "1" | "Play" | "play":
-            pass
-            # os.system('cls' if os.name == 'nt' else 'clear'),
+            os.system('cls' if os.name == 'nt' else 'clear'),
             # # Game needs to be in main.py otherwise it loads badly.
-            # play.game()
+            play.game_play()
 
         case "2" | "Rules" | "rules":
             os.system('cls' if os.name == 'nt' else 'clear'),
@@ -78,13 +75,13 @@ def nav_menu():
 
         case "4" | "Exit" | "exit":
             print(line_break)
-            print(f' Come back to my soil patch soon {Fore.MAGENTA + name}!')
+            print(f' Come back to my soil patch soon {Fore.MAGENTA + name}!{Fore.WHITE}')
             print(line_break)
-            print('')
+            print(Fore.RED +'')
             exit = "THE PROGRAM WILL NOW TERMINATE."
             exit_center = exit.center(44)
             print(exit_center)
-            print('')
+            print(Fore.WHITE + '')
             print(line_break)
             quit()
         case _:
@@ -103,7 +100,6 @@ def main_menu():
     prompt()
     nav_menu()
 
-    
 
 
 

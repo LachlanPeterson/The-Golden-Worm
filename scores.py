@@ -1,7 +1,5 @@
 from art import text2art
-import colorama
-from colorama import Fore, Back, Style
-colorama.init(autoreset=True) 
+from colorama import Fore
 import os 
 import menu
 
@@ -13,7 +11,7 @@ scores_hero_art = text2art("Scores")
 line_break = ('+--------------------------------------------+')
 
 # Header text
-scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has{Fore.YELLOW} Evolved...")
+scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has{Fore.YELLOW} Evolved...{Fore.WHITE}")
 
 
 def scores_hero():

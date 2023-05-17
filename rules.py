@@ -1,7 +1,5 @@
 from art import text2art
-import colorama
-from colorama import Fore, Back, Style
-colorama.init(autoreset=True) 
+from colorama import Fore
 import os 
 import menu
 
