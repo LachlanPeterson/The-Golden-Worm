@@ -4,7 +4,8 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True) 
 import os
 import rules
-import play
+import scores
+# import play
 
 # VARIABLES
 menu_header = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM")  #Spaces to center intro within menu break
@@ -71,8 +72,8 @@ def nav_menu():
             rules.print_rules()
 
         case "3" | "Scores" | "scores":
-            pass
-            # os.system('cls' if os.name == 'nt' else 'clear')
+            os.system('cls' if os.name == 'nt' else 'clear'),
+            scores.print_scores()
             
 
         case "4" | "Exit" | "exit":
