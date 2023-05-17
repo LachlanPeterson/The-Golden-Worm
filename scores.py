@@ -2,6 +2,7 @@ from art import text2art
 from colorama import Fore
 import os 
 import menu
+import csv
 from collections import OrderedDict
 from play import max_score, score
 
@@ -21,7 +22,6 @@ high_scores = {
     'Greg': max_score,
     'Jake': second_score,
     'Lachlan': third_score
-    
     }
 
 def scores_hero():
@@ -40,6 +40,15 @@ def scores_list():
     
 # Receives score from play.py and update highscores accordingly   
 def update_highscores(player_score):
+
+    with open('app-user-scores.csv', 'a') as f:
+        writer = csv.writer(f)
+        # # WANT TO PRINT name, score above inputs
+        # if not os.path.isfile('./app-user-scores.csv'):
+        #     writer.writerow(["name","score"])
+        writer.writerow([menu.name,player_score])
+
+
     global high_scores
     for v in high_scores.values():
         if player_score >= v:
