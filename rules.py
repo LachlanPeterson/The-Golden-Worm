@@ -57,6 +57,8 @@ def rules_input():
             print(read_again)
             print(line_break)
             rules_input()
+        case _:
+            print('other error')
             
     
 def print_rules():

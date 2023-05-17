@@ -64,7 +64,7 @@ def nav_menu():
         case "1" | "Play" | "play":
             pass
             # os.system('cls' if os.name == 'nt' else 'clear'),
-            # Game needs to be in main.py otherwise it loads badly.
+            # # Game needs to be in main.py otherwise it loads badly.
             # play.game()
 
         case "2" | "Rules" | "rules":
@@ -87,7 +87,9 @@ def nav_menu():
             print('')
             print(line_break)
             quit()
-            # os.system('cls' if os.name == 'nt' else 'clear'),
+        case _:
+            print('other error')
+            
 
 
 def initial_menu():
@@ -104,9 +106,6 @@ def main_menu():
     
 
 
-# about_title = text2art("about")
-    # print(about_title)
-# title = text2art("G Worm")
 
 
 
