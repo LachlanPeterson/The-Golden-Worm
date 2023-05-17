@@ -2,6 +2,7 @@ from art import text2art
 from colorama import Fore
 import os 
 import menu
+from play import max_score
 
 
 # Hero Text for Rules Section
@@ -16,6 +17,28 @@ def scores_hero():
     print(menu.line_break)
     print(scores_header)
     print(menu.line_break)
+
+def scores_list():
+
+    # Calc 2nd and 3rd scores
+    second_score = (max_score // 8)
+    third_score = (max_score // 16)
+
+    # Create dictionaries for inital scores
+    high_scores = [
+        {'name': 'Greg', 'score': max_score},
+        {'name': 'Jake', 'score': second_score},
+        {'name': 'Lachlan', 'score': third_score}
+    ]
+    # Print individual scores
+
+    print('')
+    for placement in high_scores:
+        print(f"      {placement['name']} has eaten {placement['score']} Gold Nuggets\n")
+
+
+    
+
 
 
 
@@ -42,12 +65,8 @@ def scores_input():
         case _:
             print('other error')
             
-    
 def print_scores():
     scores_hero()
-    # scores_list()
+    scores_list()
     scores_prompt()
     scores_input()
-
-
-

@@ -144,7 +144,7 @@ def game_play():
         # Print Board, worm, gold and border
         print_board()
         
-        # Player input for worm movement
+        # Player input for worm movement and timer between inputs
         player_input,_ = timedInput(Fore.WHITE +'Press Movement Keys: ', timeout = 0.2)
         match player_input:
             case 'w' | 'W':
