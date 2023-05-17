@@ -3,8 +3,7 @@ from colorama import Fore
 import os 
 import menu
 import csv
-from collections import OrderedDict
-from play import max_score, score
+from play import max_score
 
 
 # Hero Text for Rules Section
@@ -14,8 +13,8 @@ scores_hero_art = text2art("Scores")
 scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has{Fore.YELLOW} Evolved...{Fore.WHITE}")
 
 # Calc 2nd and 3rd scores for highscores list
-second_score = 2 # (max_score // 8)
-third_score = 1 # (max_score // 16)
+second_score = (max_score // 8)
+third_score = (max_score // 16)
 
 # Create dictionaries for inital scores
 high_scores = {
@@ -35,12 +34,14 @@ def scores_list():
     print('')
     # Looping individual key-value pairs to print high-scores.
     for k, v in high_scores.items():
-        print(f"      {k} has eaten {v} Gold Nuggets\n")
+        print(f"      {k} has eaten {Fore.YELLOW}{v}{Fore.WHITE} Gold Nuggets\n")
 
+    print(f'            {Fore.BLACK}(Each worms TOP Score){Fore.WHITE}')
     
-# Receives score from play.py and update highscores accordingly   
+# Receives score from play.py and update highscores accordingly - also prints scores to csv  
 def update_highscores(player_score):
 
+    # Printing user scores to csv file
     with open('app-user-scores.csv', 'a') as f:
         writer = csv.writer(f)
         # # WANT TO PRINT name, score above inputs
@@ -60,6 +61,7 @@ def update_highscores(player_score):
             if len(sorted_highscores) > 3:
                 # Removes smallest tuple from high scores
                 sorted_highscores.pop(-1)
+            # high_scores is now a dictionary from the sorted_highscores tuples, allowing the above for loop to work next time the function update_highscores() is called.
             high_scores = dict(sorted_highscores)
             break
 
