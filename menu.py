@@ -4,26 +4,8 @@ import rules
 import scores
 import play
 
-
-# VARIABLES
-menu_header = (f"          {Fore.MAGENTA}WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM{Fore.WHITE}")  #Spaces to center intro within menu break
 line_break = ('+--------------------------------------------+')
-
-# Therefore I converted the exact function to a string value for the variable worm_art
-greg = str(rf"""{Fore.YELLOW}
-                                 (o)(o)
-                                /     \
-                               /       |
-                              /   \  * |
-                ________     /    /\__/
-        _      /        \   /    /
-       / \    /  ____    \_/    /
-      //\ \  /  /    \         /
-      V  \ \/  /      \       /
-          \___/        \_____/
-{Fore.WHITE}""")
-
-#FUNCTIONS
+menu_header = (f"          WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM{Fore.WHITE}")  #Spaces to center intro within menu break
 
 # Print Hero Art and Welcome Message
 def menu_hero():
@@ -100,7 +82,32 @@ def main_menu():
     nav_menu()
 
 
-
+# Couldn't find Library that contained worm, so I converted the exact ASCII art function to a string value for the variable worm_art
+greg = str(rf"""{Fore.YELLOW}
+                                 (o)(o)
+                                /     \
+                               /       |
+                              /   \  * |
+                ________     /    /\__/
+        _      /        \   /    /
+       / \    /  ____    \_/    /
+      //\ \  /  /    \         /
+      V  \ \/  /      \       /
+          \___/        \_____/
+{Fore.WHITE}""")
+           
+worm_death = str(rf"""{Fore.MAGENTA}        
+                                 (X)(X)
+                {Fore.BLACK}  YOU {Fore.MAGENTA}          /     \
+                {Fore.BLACK}  HAVE {Fore.MAGENTA}        /       |
+                {Fore.RED}  DIED! {Fore.MAGENTA}      /   \  * |
+                ________     /    /\__/
+        _      /        \   /    /
+       / \    /  ____    \_/    /
+      //\ \  /  /    \         /
+      V  \ \/  /      \       /
+          \___/        \_____/ 
+{Fore.WHITE}""")
 
 
 

@@ -79,7 +79,7 @@ def worm_movement():
             print('You won and turned gold!')
         else:    
             generate_gold_position()
-    # If worm head is in: Itself, or the borders: Left&Right, Top&Bottom
+    # If worm head is in: Itself, or the borders: Left & Right, Top & Bottom - respectively.
     elif worm[0] in worm[1:] or worm[0][0] in (0, board_height - 1) or worm[0][1] in (0, board_width - 1):
         worm_die()
          
@@ -90,16 +90,27 @@ def worm_movement():
 def worm_die():
     global game_over
     game_over = True
-    print(f'You ate {score} Golden Nuggets!')
-    game_nav = input('Press 1 to retry, press 2 for menu: ')
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(menu.worm_death)
+    print(menu.line_break)
+    print(f'          You ate {Fore.YELLOW}{score}{Fore.WHITE} Golden Nuggets!')
+    print(menu.line_break)
+    print('  1. Retry')
+    print('  2. Menu')
+    print(menu.line_break)
+
+    # Post death navigation
+    game_nav = str(input(' > '))
     match game_nav:
-        case '1':
+        case '1' | 'Retry' | 'retry':
             os.system('cls' if os.name == 'nt' else 'clear')
             game_play()
-        case '2':
+        case '2' | 'Menu' | 'menu':
             os.system('cls' if os.name == 'nt' else 'clear')
             menu.main_menu()
-
+        case _:
+            print('other error')
 
 def game_reset():
     # Resetting game.
@@ -112,8 +123,6 @@ def game_reset():
     game_over = False
     worm = [(board_height//2,6),(board_height//2,5),(board_height//2,4)]
     auto_move = movement['right']
-
-
 
 def game_play():
     global auto_move

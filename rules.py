@@ -3,12 +3,9 @@ from colorama import Fore
 import os 
 import menu
 
-# VARIABLES
 
 # Hero Text for Rules Section
 rules_hero_art = text2art("Rules")
-
-line_break = ('+--------------------------------------------+')
 
 # Header text
 rules_header = (f"        {Fore.YELLOW}Golden {Fore.WHITE}rules of the soil patch")
@@ -18,9 +15,9 @@ rules_header = (f"        {Fore.YELLOW}Golden {Fore.WHITE}rules of the soil patc
 
 def rules_hero():
     print(rules_hero_art)
-    print(line_break)
+    print(menu.line_break)
     print(rules_header)
-    print(line_break)
+    print(menu.line_break)
 
 def rules_list():
     # Rule 1
@@ -36,11 +33,11 @@ def rules_list():
     print(f" {Fore.YELLOW}4. {Fore.WHITE}If you manage to eat enough{Fore.YELLOW} Gold{Fore.WHITE} and\n    you can no longer grow in my patch...\n\n    You will evolve from a {Fore.MAGENTA}Regular Worm{Fore.WHITE} to\n    a{Fore.YELLOW} Glamorous Golden Worm{Fore.WHITE} like me!")
 
 def rules_prompt():
-    print(line_break)
+    print(menu.line_break)
     rules_footer = "Do you understand the rules? (Yes or No)"
     rules_nav = rules_footer.center(44)
     print(rules_nav)
-    print(line_break)
+    print(menu.line_break)
 
 def rules_input():
     rules_nav = input(' > ')
@@ -49,11 +46,11 @@ def rules_input():
             os.system('cls' if os.name == 'nt' else 'clear')
             menu.main_menu()
         case "No" | "no":
-            print(line_break)
+            print(menu.line_break)
             no_prompt = "Have another read, you'll get it!"
             read_again = no_prompt.center(44)
             print(read_again)
-            print(line_break)
+            print(menu.line_break)
             rules_input()
         case _:
             print('other error')
