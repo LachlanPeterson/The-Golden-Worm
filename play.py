@@ -1,4 +1,5 @@
 import os
+import menu
 from pytimedinput import timedInput
 from random import randint
 from colorama import Fore
@@ -22,7 +23,7 @@ auto_move = movement['right']
 # Game Over
 game_over = False
 
-# Set Score
+# Set Score and max score
 score = 0
 max_score = play_area -len(worm)
 
@@ -90,13 +91,40 @@ def worm_die():
     global game_over
     game_over = True
     print(f'You ate {score} Golden Nuggets!')
+    game_nav = input('Press 1 to retry, press 2 for menu: ')
+    match game_nav:
+        case '1':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            game_play()
+        case '2':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu.main_menu()
+
+
+def game_reset():
+    # Resetting game.
+    global score
+    global game_over
+    global worm
+    global auto_move
+    
+    score = 0
+    game_over = False
+    worm = [(board_height//2,6),(board_height//2,5),(board_height//2,4)]
+    auto_move = movement['right']
+
+
 
 def game_play():
     global auto_move
+    
+    # Reset Game
+    game_reset()
+
     # Generate initial gold position
     generate_gold_position()
 
-    # While worm is alive run:
+    # While game is game over is False (game is playing) run:
     while game_over == False:
         # Reprint board, giving impression of movement
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -119,6 +147,5 @@ def game_play():
             case 'd' | 'D':
                 auto_move = movement['right']
             
-        
         # Updating new worm position after user input before game reprint 
         worm_movement()

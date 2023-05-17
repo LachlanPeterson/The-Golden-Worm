@@ -61,7 +61,6 @@ def nav_menu():
     match navigation:
         case "1" | "Play" | "play":
             os.system('cls' if os.name == 'nt' else 'clear'),
-            # # Game needs to be in main.py otherwise it loads badly.
             play.game_play()
 
         case "2" | "Rules" | "rules":
