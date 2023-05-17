@@ -20,6 +20,9 @@ movement = {'up': (-1,0), 'left': (0,-1), 'down': (1,0), 'right': (0,1)}
 auto_move = movement['right']
 # Worm auto direction = right, so I call the key from above dict to get the value.
 
+# Worm Life
+alive = True
+
 # Gold Nuggets
 def generate_gold_position():
     global gold_position
@@ -60,19 +63,23 @@ def worm_movement():
     if worm[0] == gold_position:
         score += 1
         generate_gold_position()
-    
+    # If worm head is in: Itself, or the borders: Left&Right, Top&Bottom
+    elif worm[0] in worm[1:] or worm[0][0] in (0, board_height - 1) or worm[0][1] in (0, board_width - 1):
+        worm_die()
+         
     else:
         worm.pop(-1)
         # If you print(worm) there are 3 tuples.
 
-
-
+def worm_die():
+    global alive
+    alive = False
 
 # Generate initial gold position
 generate_gold_position()
 
-
-while True:
+# While worm is alive run:
+while alive:
     # Reprint board, giving impression of movement
     os.system('cls' if os.name == 'nt' else 'clear')
 
