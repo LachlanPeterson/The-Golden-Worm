@@ -3,7 +3,7 @@ import menu
 import scores
 from pytimedinput import timedInput
 from random import randint
-from colorama import Fore
+from colorama import Fore, Style
  
 # Set Board size
 board_width = 32
@@ -80,6 +80,7 @@ def worm_movement():
             # Passing score variable to scores module
             scores.update_highscores(score)
             print('You won and turned gold!')
+            # worm_win()
         else:    
             generate_gold_position()
     # If worm head is in: Itself, or the borders: Left & Right, Top & Bottom - respectively.
@@ -107,17 +108,24 @@ def worm_die():
     print('  2. Menu')
     print(menu.line_break)
 
-    # Post death navigation
-    game_nav = str(input(' > '))
-    match game_nav:
-        case '1' | 'Retry' | 'retry':
-            os.system('cls' if os.name == 'nt' else 'clear')
-            game_play()
-        case '2' | 'Menu' | 'menu':
-            os.system('cls' if os.name == 'nt' else 'clear')
-            menu.main_menu()
-        case _:
-            print('other error')
+    def worm_die_input():
+        # Post death navigation
+        game_nav = str(input(' > '))
+        match game_nav:
+            case '1' | 'Retry' | 'retry':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                game_play()
+            case '2' | 'Menu' | 'menu':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu.main_menu()
+            # Error Handling
+            case _:
+                print(menu.line_break)
+                print(f" Please enter a valid input from the Menu:\n {Style.DIM}(E.g. If you want to Retry: '1' or 'Retry'){Style.NORMAL}")
+                print(menu.line_break)
+                worm_die_input()
+    # Run worm die input
+    worm_die_input()
 
 def game_reset():
     # Resetting game.
@@ -162,6 +170,8 @@ def game_play():
                 auto_move = movement['down']
             case 'd' | 'D':
                 auto_move = movement['right']
-            
+            # Only movement keys update movement. Errors handled as no invalid keys move worm.
+            case _:
+                pass
         # Updating new worm position after user input before game reprint 
         worm_movement()

@@ -77,11 +77,10 @@ def scores_input():
         case "1" | "Menu" | "menu":
             os.system('cls' if os.name == 'nt' else 'clear')
             menu.main_menu()
+        # Error Handling
         case _:
             print(menu.line_break)
-            scores_error = "Please enter a valid input: (1 or Menu)"
-            scores_error_centered = scores_error.center(46)
-            print(scores_error_centered)
+            print(f" Please enter a valid input:  {Style.DIM}('1' or 'Menu'){Style.NORMAL}")
             print(menu.line_break)
             scores_input()
             

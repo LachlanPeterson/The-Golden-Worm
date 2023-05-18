@@ -1,5 +1,5 @@
 from art import text2art
-from colorama import Fore
+from colorama import Fore, Style
 import os 
 import menu
 
@@ -34,8 +34,8 @@ def rules_list():
 
 def rules_prompt():
     print(menu.line_break)
-    rules_footer = "Do you understand the rules? (Yes or No)"
-    rules_nav = rules_footer.center(44)
+    rules_footer = "Do you understand the rules?"
+    rules_nav = rules_footer.center(46)
     print(rules_nav)
     print(menu.line_break)
 
@@ -52,11 +52,10 @@ def rules_input():
             print(read_again)
             print(menu.line_break)
             rules_input()
+        # Error Handling
         case _:
             print(menu.line_break)
-            rules_error = "Please enter a valid input: (Yes or No)"
-            rules_error_centered = rules_error.center(46)
-            print(rules_error_centered)
+            print(f" Please enter a valid input:  {Style.DIM}('Yes' or 'No'){Style.NORMAL}")
             print(menu.line_break)
             rules_input()
             
