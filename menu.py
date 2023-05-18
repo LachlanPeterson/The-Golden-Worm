@@ -1,14 +1,14 @@
-from colorama import Fore, Style
 import os
 import rules
 import scores
 import play
+from colorama import Fore, Style
 
 line_break = ('+--------------------------------------------+')
 
 # Spaces to center intro within menu break
 menu_header = (f"          WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} "
-               f"WORM{Fore.WHITE}")  
+               f"WORM{Fore.WHITE}")
 
 
 # Print Hero Art and Welcome Message
@@ -147,11 +147,15 @@ worm_death = str(rf"""{Fore.MAGENTA}
           \___/        \_____/
 {Fore.WHITE}""")
 
-
-
-
-
-
-
-
-
+worm_win = str(rf"""{Fore.YELLOW}
+                                 (G)(G)
+                  YOU           /     \
+                  HAVE         /       |
+                EVOLVED!      /   \  * |
+                ________     /    /\__/
+        _      /        \   /    /
+       / \    /  ____    \_/    /
+      //\ \  /  /    \         /
+      V  \ \/  /      \       /
+          \___/        \_____/
+{Fore.WHITE}""")

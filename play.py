@@ -1,8 +1,8 @@
 import os
 import menu
 import scores
-from pytimedinput import timedInput
 from random import randint
+from pytimedinput import timedInput
 from colorama import Fore, Style
 
 # Set Board size
@@ -85,10 +85,7 @@ def worm_movement():
         if score == max_score:
             # End game
             game_over = True
-            # Passing score variable to scores module
-            scores.update_highscores(score)
-            print('You won and turned gold!')
-            # worm_win()
+            worm_win()
         else:
             gold_position = generate_gold_position()
     # If worm head is in: Itself, or the borders: Left & Right, Top & Bottom.
@@ -115,27 +112,72 @@ def worm_die():
     print('  1. Retry')
     print('  2. Menu')
     print(menu.line_break)
-
-    def worm_die_input():
-        # Post death navigation
-        game_nav = str(input(' > '))
-        match game_nav:
-            case '1' | 'Retry' | 'retry':
-                os.system('cls' if os.name == 'nt' else 'clear')
-                game_play()
-            case '2' | 'Menu' | 'menu':
-                os.system('cls' if os.name == 'nt' else 'clear')
-                menu.main_menu()
-            # Error Handling
-            case _:
-                print(menu.line_break)
-                print(f" Please enter a valid input from the Menu:\n "
-                      f"{Style.DIM}(Retry: '1' or 'Retry')\n "
-                      f"(Menu: '2' or 'Menu'){Style.NORMAL}")
-                print(menu.line_break)
-                worm_die_input()
-    # Run worm die input
     worm_die_input()
+
+
+def worm_die_input():
+    # Post death navigation
+    game_nav = str(input(' > '))
+    match game_nav:
+        case '1' | 'Retry' | 'retry':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            game_play()
+        case '2' | 'Menu' | 'menu':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu.main_menu()
+        # Error Handling
+        case _:
+            print(menu.line_break)
+            print(f" Please enter a valid input from the Menu:\n "
+                  f"{Style.DIM}(Retry: '1' or 'Retry')\n "
+                  f"(Menu: '2' or 'Menu'){Style.NORMAL}")
+            print(menu.line_break)
+            worm_die_input()
+
+
+def worm_win():
+    global game_over
+    game_over = True
+
+    # Passing score variable to scores module
+    scores.update_highscores(score)
+
+    # Win screen
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(menu.worm_win)
+    print(menu.line_break)
+    print(f'         You ate ALL {Fore.YELLOW}{score}{Fore.WHITE} '
+          'Golden Nuggets!')
+    print(menu.line_break)
+    print(f" *{Fore.YELLOW}Greg{Fore.WHITE} rushes over to congratulate you*"
+          f"\n\n I knew you could do it {Fore.YELLOW}{menu.name}{Fore.WHITE},"
+          f" I believed \n in you as soon as you came to my {Fore.GREEN}Garden"
+          f"{Fore.WHITE}.\n To think another worm evolved... how grand!\n")
+    print(f" Well, there's not much left for you here my\n friend. I'll send"
+          f" you on your way. Make sure\n to tell other {Fore.MAGENTA}"
+          f"worms{Fore.WHITE} about my {Fore.GREEN}Garden!{Fore.WHITE} ")
+    print(menu.line_break)
+    print(f'  1. Leave the Garden')
+    print(menu.line_break)
+    worm_win_input()
+
+
+def worm_win_input():
+    # Post death navigation
+    game_nav = str(input(' > '))
+    match game_nav:
+        case '1' | 'Leave' | 'leave':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            # Goes to initial menu where user inputs name for Game Lore reasons
+            menu.initial_menu()
+        # Error Handling
+        case _:
+            print(menu.line_break)
+            print(f" You decided to leave the {Fore.GREEN}Garden{Fore.WHITE} "
+                  f"after\n thanking {Fore.YELLOW}Greg{Fore.WHITE} for all his"
+                  f" help:\n {Style.DIM}('1' or 'Leave'){Style.NORMAL}")
+            print(menu.line_break)
+            worm_win_input()
 
 
 # Resetting game

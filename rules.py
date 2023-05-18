@@ -1,7 +1,7 @@
-from art import text2art
-from colorama import Fore, Style
 import os
 import menu
+from art import text2art
+from colorama import Fore, Style
 
 # Hero Text for Rules Section
 rules_hero_art = text2art("Rules")
