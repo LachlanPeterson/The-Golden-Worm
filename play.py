@@ -121,7 +121,7 @@ def worm_die():
             # Error Handling
             case _:
                 print(menu.line_break)
-                print(f" Please enter a valid input from the Menu:\n {Style.DIM}(E.g. If you want to Retry: '1' or 'Retry'){Style.NORMAL}")
+                print(f" Please enter a valid input from the Menu:\n {Style.DIM}(Retry: '1' or 'Retry')\n (Menu: '2' or 'Menu'){Style.NORMAL}")
                 print(menu.line_break)
                 worm_die_input()
     # Run worm die input

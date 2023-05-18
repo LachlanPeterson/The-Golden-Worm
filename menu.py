@@ -20,11 +20,23 @@ def introduction():
     print(f" Hello, I am {Fore.YELLOW}Greg {Fore.WHITE}the Great Golden Worm! \n")
     print(f" I haven't seen you around my {Fore.GREEN}Garden.{Fore.WHITE}") 
 
+def user_name():
     # User prompt for name input
     global name
-    name = input(" Tell me, what's your name little worm?\n\n > ")
-    #  Prints name and greeting
-    print (f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name for a worm! \n Welcome to my special {Fore.GREEN}Garden{Fore.WHITE} filled with \n {Fore.YELLOW}GOLD NUGGETS.{Fore.WHITE}\n") 
+    # Error Handling for inputs to be letters (no symbols or numbers)
+    while True:
+        name = input(" Tell me, what's your name little worm?\n\n > ")
+        if name.isalpha():
+            #  Prints name and greeting
+            print (f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name for a worm! \n Welcome to my special {Fore.GREEN}Garden{Fore.WHITE} filled with \n {Fore.YELLOW}GOLD NUGGETS.{Fore.WHITE}\n") 
+            break
+        else:
+            print(line_break)
+            name_error = "Please enter only letters"
+            name_error_center = name_error.center(46)
+            print(name_error_center)
+            print(line_break)
+            
 
 # Prompt to call in both initial and main menu function
 def prompt():   
@@ -44,15 +56,15 @@ def menu_input():
     navigation = str(input(' > '))
     match navigation:
         case "1" | "Play" | "play":
-            os.system('cls' if os.name == 'nt' else 'clear'),
+            os.system('cls' if os.name == 'nt' else 'clear')
             play.game_play()
 
         case "2" | "Rules" | "rules":
-            os.system('cls' if os.name == 'nt' else 'clear'),
+            os.system('cls' if os.name == 'nt' else 'clear')
             rules.print_rules()
 
         case "3" | "Scores" | "scores":
-            os.system('cls' if os.name == 'nt' else 'clear'),
+            os.system('cls' if os.name == 'nt' else 'clear')
             scores.print_scores()
             
         case "4" | "Exit" | "exit":
@@ -79,6 +91,7 @@ def menu_input():
 def initial_menu():
     menu_hero()
     introduction()
+    user_name()
     prompt()
     nav_menu()
     menu_input()

@@ -42,13 +42,25 @@ def scores_list():
 # Receives score from play.py and update highscores accordingly - also prints scores to csv  
 def update_highscores(player_score):
 
-    # Printing user scores to csv file
-    with open('app-user-scores.csv', 'a') as f:
-        writer = csv.writer(f)
-        # # WANT TO PRINT name, score above inputs
-        # if not os.path.isfile('./app-user-scores.csv'):
-        #     writer.writerow(["name","score"])
-        writer.writerow([menu.name,player_score])
+    file_loc = "app-user-scores.csv"
+    if not os.path.exists(file_loc):
+        with open(file_loc, 'w') as f:
+            writer = csv.writer(f)
+            # Create new file
+            writer.writerow(["name","score"])
+            writer.writerow([menu.name,player_score])
+    else:
+        with open(file_loc, 'a') as f:
+            writer = csv.writer(f)
+            writer.writerow([menu.name,player_score])
+
+    # # Printing user scores to csv file
+    # with open('app-user-scores.csv', 'a') as f:
+    #     writer = csv.writer(f)
+    #     # # WANT TO PRINT name, score above inputs
+    #     # if not os.path.isfile('./app-user-scores.csv'):
+    #     #     writer.writerow(["name","score"])
+    #     writer.writerow([menu.name,player_score])
 
     global high_scores
     for v in high_scores.values():
