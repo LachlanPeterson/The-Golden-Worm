@@ -31,16 +31,6 @@ score = 0
 max_score = play_area - len(worm)
 
 
-# # Gold Nuggets
-# def generate_gold_position():
-#     global gold_position
-#     gold_position = ((randint(1, board_height - 2)),
-#                      (randint(1, board_width - 2)))
-
-#     # Regenerating gold position if its in worm
-#     if gold_position in worm:
-#         generate_gold_position()
-
 # Gold Nuggets
 def generate_gold_position():
     new_gold_position = ((randint(1, board_height - 2)),
