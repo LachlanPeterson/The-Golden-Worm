@@ -8,5 +8,8 @@ then
     exit 1
 fi
 
+# Install Packages
+python3 -m pip install -r requirements.txt
+
 # Run main.py module
 python3 main.py
