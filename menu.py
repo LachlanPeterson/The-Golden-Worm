@@ -5,7 +5,11 @@ import scores
 import play
 
 line_break = ('+--------------------------------------------+')
-menu_header = (f"          WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} WORM{Fore.WHITE}")  #Spaces to center intro within menu break
+
+# Spaces to center intro within menu break
+menu_header = (f"          WELCOME TO THE {Fore.YELLOW}GOLDEN{Fore.MAGENTA} "
+               f"WORM{Fore.WHITE}")  
+
 
 # Print Hero Art and Welcome Message
 def menu_hero():
@@ -14,11 +18,14 @@ def menu_hero():
     print(menu_header)
     print(line_break)
 
-# Introduction with Greg, prompt user for name and greets them before introducing the menu.
+
+# Introduction with Greg, prompt user for name before the menu.
 def introduction():
     # Introduction with Greg
-    print(f" Hello, I am {Fore.YELLOW}Greg {Fore.WHITE}the Great Golden Worm! \n")
-    print(f" I haven't seen you around my {Fore.GREEN}Garden.{Fore.WHITE}") 
+    print(f" Hello, I am {Fore.YELLOW}Greg {Fore.WHITE}the "
+          "Great Golden Worm! \n")
+    print(f" I haven't seen you around my {Fore.GREEN}Garden.{Fore.WHITE}")
+
 
 def user_name():
     # User prompt for name input
@@ -28,7 +35,10 @@ def user_name():
         name = input(" Tell me, what's your name little worm?\n\n > ")
         if name.isalpha():
             #  Prints name and greeting
-            print (f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name for a worm! \n Welcome to my special {Fore.GREEN}Garden{Fore.WHITE} filled with \n {Fore.YELLOW}GOLD NUGGETS.{Fore.WHITE}\n") 
+            print(f"\n {Fore.MAGENTA + name}{Fore.WHITE}, what a splendid name"
+                  f" for a worm! \n Welcome to my special {Fore.GREEN}Garden"
+                  f"{Fore.WHITE} filled with \n {Fore.YELLOW}GOLD NUGGETS."
+                  f"{Fore.WHITE}\n")
             break
         else:
             print(line_break)
@@ -36,11 +46,12 @@ def user_name():
             name_error_center = name_error.center(46)
             print(name_error_center)
             print(line_break)
-            
+
 
 # Prompt to call in both initial and main menu function
-def prompt():   
+def prompt():
     print(f" What would you like to do now {Fore.MAGENTA + name}?{Fore.WHITE}")
+
 
 # Prints Navigation Menu
 def nav_menu():
@@ -50,6 +61,7 @@ def nav_menu():
     print('  3. Scores')
     print('  4. Exit')
     print(line_break)
+
 
 def menu_input():
     # Navigation to other Pages
@@ -66,12 +78,13 @@ def menu_input():
         case "3" | "Scores" | "scores":
             os.system('cls' if os.name == 'nt' else 'clear')
             scores.print_scores()
-            
+
         case "4" | "Exit" | "exit":
             print(line_break)
-            print(f' Come back to my {Fore.GREEN}Garden{Fore.WHITE} soon {Fore.MAGENTA + name}!{Fore.WHITE}')
+            print(f' Come back to my {Fore.GREEN}Garden{Fore.WHITE} soon '
+                  f'{Fore.MAGENTA + name}!{Fore.WHITE}')
             print(line_break)
-            print(Fore.RED +'')
+            print(Fore.RED + '')
             exit = "THE PROGRAM WILL NOW TERMINATE."
             exit_center = exit.center(46)
             print(exit_center)
@@ -82,10 +95,11 @@ def menu_input():
         # Error Handling
         case _:
             print(line_break)
-            print(f" Please enter a valid input from the Menu:\n {Style.DIM}(E.g. If you want to Play: '1' or 'Play'){Style.NORMAL}")
+            print(f" Please enter a valid input from the Menu:\n {Style.DIM}"
+                  f"(E.g. If you want to Play: '1' or 'Play'){Style.NORMAL}")
             print(line_break)
             menu_input()
-            
+
 
 # Called by Main, runs introduction with Greg and takes name.
 def initial_menu():
@@ -96,7 +110,8 @@ def initial_menu():
     nav_menu()
     menu_input()
 
-# Used by modules to create interactive menu. No introduction function is defined. 
+
+# Used by modules to create interactive menu without intro function.
 def main_menu():
     menu_hero()
     prompt()
@@ -104,7 +119,8 @@ def main_menu():
     menu_input()
 
 
-# Couldn't find Library that contained worm, so I converted the exact ASCII art function to a string value for the variable worm_art
+# Couldn't find Library that contained worm, so I converted the exact ASCII
+# art function to a string value for the variable worm_art
 greg = str(rf"""{Fore.YELLOW}
                                  (o)(o)
                                 /     \
@@ -117,8 +133,8 @@ greg = str(rf"""{Fore.YELLOW}
       V  \ \/  /      \       /
           \___/        \_____/
 {Fore.WHITE}""")
-           
-worm_death = str(rf"""{Fore.MAGENTA}        
+
+worm_death = str(rf"""{Fore.MAGENTA}
                                  (X)(X)
                 {Fore.RED}  YOU {Fore.MAGENTA}          /     \
                 {Fore.RED}  HAVE {Fore.MAGENTA}        /       |
@@ -128,7 +144,7 @@ worm_death = str(rf"""{Fore.MAGENTA}
        / \    /  ____    \_/    /
       //\ \  /  /    \         /
       V  \ \/  /      \       /
-          \___/        \_____/ 
+          \___/        \_____/
 {Fore.WHITE}""")
 
 
