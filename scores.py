@@ -54,14 +54,6 @@ def update_highscores(player_score):
             writer = csv.writer(f)
             writer.writerow([menu.name,player_score])
 
-    # # Printing user scores to csv file
-    # with open('app-user-scores.csv', 'a') as f:
-    #     writer = csv.writer(f)
-    #     # # WANT TO PRINT name, score above inputs
-    #     # if not os.path.isfile('./app-user-scores.csv'):
-    #     #     writer.writerow(["name","score"])
-    #     writer.writerow([menu.name,player_score])
-
     global high_scores
     for v in high_scores.values():
         if player_score >= v:
