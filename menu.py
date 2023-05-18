@@ -60,7 +60,7 @@ def nav_menu():
             print(line_break)
             print(Fore.RED +'')
             exit = "THE PROGRAM WILL NOW TERMINATE."
-            exit_center = exit.center(44)
+            exit_center = exit.center(46)
             print(exit_center)
             print(Fore.WHITE + '')
             print(line_break)

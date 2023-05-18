@@ -8,7 +8,7 @@ import menu
 rules_hero_art = text2art("Rules")
 
 # Header text
-rules_header = (f"        {Fore.YELLOW}Golden {Fore.WHITE}rules of the soil patch")
+rules_header = (f"          {Fore.YELLOW}Golden {Fore.WHITE}rules of the {Fore.GREEN}Garden{Fore.WHITE}")
 # Tried to center the above function with colour but couldn't.
 # rules_txt = "Rules of the soil patch!"
 # rules_header = rules_txt.center(44)
@@ -24,13 +24,13 @@ def rules_list():
     print(f" {Fore.YELLOW}1. {Fore.WHITE}Movement is controlled by W,A,S,D Keys:\n    W = Left, A = Right, S = Up, D = Down\n")
    
     # Rule 2
-    print(f" {Fore.YELLOW}2. {Fore.WHITE}Don't try to leave the soil patch or run\n    into your body... you will {Fore.RED}die!\n")
+    print(f" {Fore.YELLOW}2. {Fore.WHITE}Don't try to leave the {Fore.GREEN}Garden{Fore.WHITE} or run\n    into your body... you will {Fore.RED}die!\n")
 
      # Rule 3
-    print(f" {Fore.YELLOW}3. {Fore.WHITE}On a {Fore.GREEN}positive{Fore.WHITE} note, eating {Fore.YELLOW}Gold{Fore.WHITE} will\n    make you grow and add to your score.\n")
+    print(f" {Fore.YELLOW}3. {Fore.WHITE}On a positive{Fore.WHITE} note, eating {Fore.YELLOW}Gold{Fore.WHITE} will\n    make you grow and add to your score.\n")
 
     # Rule 4
-    print(f" {Fore.YELLOW}4. {Fore.WHITE}If you manage to eat enough{Fore.YELLOW} Gold{Fore.WHITE} and\n    you can no longer grow in my patch...\n\n    You will evolve from a {Fore.MAGENTA}Regular Worm{Fore.WHITE} to\n    a{Fore.YELLOW} Glamorous Golden Worm{Fore.WHITE} like me!")
+    print(f" {Fore.YELLOW}4. {Fore.WHITE}If you manage to eat enough{Fore.YELLOW} Gold{Fore.WHITE} and\n    you can no longer grow in the garden...\n\n    You will evolve from a {Fore.MAGENTA}Regular Worm{Fore.WHITE} to\n    a Glamorous {Fore.YELLOW}Golden Worm{Fore.WHITE} like me!")
 
 def rules_prompt():
     print(menu.line_break)
@@ -48,14 +48,18 @@ def rules_input():
         case "No" | "no":
             print(menu.line_break)
             no_prompt = "Have another read, you'll get it!"
-            read_again = no_prompt.center(44)
+            read_again = no_prompt.center(46)
             print(read_again)
             print(menu.line_break)
             rules_input()
         case _:
-            print('other error')
+            print(menu.line_break)
+            rules_error = "Please enter a valid input: (Yes or No)"
+            rules_error_centered = rules_error.center(46)
+            print(rules_error_centered)
+            print(menu.line_break)
+            rules_input()
             
-    
 def print_rules():
     rules_hero()
     rules_list()

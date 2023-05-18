@@ -1,8 +1,8 @@
-from art import text2art
-from colorama import Fore
 import os 
-import menu
 import csv
+import menu
+from art import text2art
+from colorama import Fore, Style
 from play import max_score
 
 
@@ -29,6 +29,7 @@ def scores_hero():
     print(scores_header)
     print(menu.line_break)
 
+# Default scores list taken from high_scores dictionary
 def scores_list():
     # Print individual scores
     print('')
@@ -36,7 +37,7 @@ def scores_list():
     for k, v in high_scores.items():
         print(f"      {k} has eaten {Fore.YELLOW}{v}{Fore.WHITE} Gold Nuggets\n")
 
-    print(f'            {Fore.BLACK}(Each worms TOP Score){Fore.WHITE}')
+    print(f'            {Style.DIM}(Each worms TOP Score){Style.NORMAL}')
     
 # Receives score from play.py and update highscores accordingly - also prints scores to csv  
 def update_highscores(player_score):
@@ -48,7 +49,6 @@ def update_highscores(player_score):
         # if not os.path.isfile('./app-user-scores.csv'):
         #     writer.writerow(["name","score"])
         writer.writerow([menu.name,player_score])
-
 
     global high_scores
     for v in high_scores.values():
@@ -68,26 +68,22 @@ def update_highscores(player_score):
 
 def scores_prompt():
     print(menu.line_break)
-    scores_footer = "Will you take the Golden Challenge? (Yes or No)"
-    scores_nav = scores_footer.center(44)
-    print(scores_nav)
+    print('  1. Menu')
     print(menu.line_break)
 
 def scores_input():
-    scores_nav = input(' > ')
+    scores_nav = str(input(' > '))
     match scores_nav:
-        case "Yes" | "yes":
+        case "1" | "Menu" | "menu":
             os.system('cls' if os.name == 'nt' else 'clear')
             menu.main_menu()
-        case "No" | "no":
+        case _:
             print(menu.line_break)
-            believe_prompt = "I believe in you!"
-            read_believe = believe_prompt.center(44)
-            print(read_believe)
+            scores_error = "Please enter a valid input: (1 or Menu)"
+            scores_error_centered = scores_error.center(46)
+            print(scores_error_centered)
             print(menu.line_break)
             scores_input()
-        case _:
-            print('other error')
             
 def print_scores():
     scores_hero()
