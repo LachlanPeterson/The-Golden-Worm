@@ -31,15 +31,25 @@ score = 0
 max_score = play_area - len(worm)
 
 
+# # Gold Nuggets
+# def generate_gold_position():
+#     global gold_position
+#     gold_position = ((randint(1, board_height - 2)),
+#                      (randint(1, board_width - 2)))
+
+#     # Regenerating gold position if its in worm
+#     if gold_position in worm:
+#         generate_gold_position()
+
 # Gold Nuggets
 def generate_gold_position():
-    global gold_position
-    gold_position = ((randint(1, board_height - 2)),
-                     (randint(1, board_width - 2)))
+    new_gold_position = ((randint(1, board_height - 2)),
+                         (randint(1, board_width - 2)))
 
     # Regenerating gold position if its in worm
-    if gold_position in worm:
+    if new_gold_position in worm:
         generate_gold_position()
+    return new_gold_position
 
 
 # Print board function
@@ -72,6 +82,7 @@ def worm_movement():
     global score
     global max_score
     global game_over
+    global gold_position
     # Worm head = first tuple in worm, so to move worm we are adding
     # a new head = direciton + old head, then removing tail(last tuple).
     update_worm = worm[0][0] + auto_move[0], worm[0][1] + auto_move[1]
@@ -89,7 +100,7 @@ def worm_movement():
             print('You won and turned gold!')
             # worm_win()
         else:
-            generate_gold_position()
+            gold_position = generate_gold_position()
     # If worm head is in: Itself, or the borders: Left & Right, Top & Bottom.
     elif (worm[0] in worm[1:] or worm[0][0] in (0, board_height - 1) or
           worm[0][1] in (0, board_width - 1)):
@@ -143,10 +154,12 @@ def game_reset():
     global game_over
     global worm
     global auto_move
+    global gold_position
     score = 0
     game_over = False
     worm = [(board_height//2, 6), (board_height//2, 5), (board_height//2, 4)]
     auto_move = movement['right']
+    gold_position = generate_gold_position()
 
 
 def game_play():
@@ -154,9 +167,6 @@ def game_play():
 
     # Reset Game
     game_reset()
-
-    # Generate initial gold position
-    generate_gold_position()
 
     # While game is game over is False (game is playing) run:
     while not game_over:

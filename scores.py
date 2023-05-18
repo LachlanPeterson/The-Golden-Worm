@@ -3,7 +3,6 @@ import csv
 import menu
 from art import text2art
 from colorama import Fore, Style
-from play import max_score
 
 # Hero Text for Rules Section
 scores_hero_art = text2art("Scores")
@@ -11,6 +10,8 @@ scores_hero_art = text2art("Scores")
 # Header text
 scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has"
                  f"{Fore.YELLOW} Evolved...{Fore.WHITE}")
+
+max_score = 387
 
 # Calc 2nd and 3rd scores for highscores list
 second_score = (max_score // 8)
