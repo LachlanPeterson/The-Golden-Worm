@@ -16,16 +16,16 @@ worm = [(board_height//2, 6), (board_height//2, 5), (board_height//2, 4)]
 # Test generate_gold_position function
 # Case 1 - Test whether gold_position is generated inside border
 def test_generate_gold_position_not_in_border():
-    gold_position = play.generate_gold_position()
-    assert (gold_position[0] not in (0, board_height - 1) or
-            gold_position[1] not in (0, board_width - 1))
+    play.generate_gold_position()
+    assert (play.gold_position[0] not in (0, board_height - 1) or
+            play.gold_position[1] not in (0, board_width - 1))
     # Expected results: gold_position randomly generated outside border
 
 
 # Case 2 - Test whether gold position is not in the worm
 def test_generate_gold_position_not_in_worm():
-    gold_position = play.generate_gold_position()
-    assert gold_position not in worm
+    play.generate_gold_position()
+    assert play.gold_position not in worm
     # Expected results: gold_position randomly generated outside worm
 
 

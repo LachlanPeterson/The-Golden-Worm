@@ -103,6 +103,7 @@ def menu_input():
 
 # Called by Main, runs introduction with Greg and takes name.
 def initial_menu():
+    os.system('cls' if os.name == 'nt' else 'clear')
     menu_hero()
     introduction()
     user_name()

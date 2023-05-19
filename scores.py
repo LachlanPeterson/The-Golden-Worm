@@ -14,8 +14,9 @@ scores_header = (f"         Only one {Fore.MAGENTA}worm{Fore.WHITE} has"
 max_score = 387
 
 # Calc 2nd and 3rd scores for highscores list
-second_score = (max_score // 8)
-third_score = (max_score // 16)
+# Set scores to 10 and 5 manually for marking purposes
+second_score = 10  # (max_score // 8)
+third_score = 5  # (max_score // 16)
 
 # Default Scores to beat
 high_scores = {
